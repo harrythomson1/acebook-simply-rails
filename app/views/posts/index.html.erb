@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
   <p class="form"><%= post.message %></p>
+  <p class="form"><%= post.user %></p>
   <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: "Are you sure?" }%></p>
+  <p><%= link_to 'Edit', edit_post_path(post)%></p>
 <% end %>
 
 <%= link_to new_post_path do %>

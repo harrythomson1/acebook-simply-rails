@@ -1,7 +1,7 @@
-class CreatePosts < ActiveRecord::Migration[5.1]
+class CreateStatuses < ActiveRecord::Migration[6.0]
   def change
-    create_table :posts do |t|
-      t.string :message
+    create_table :statuses do |t|
+      t.text :status
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

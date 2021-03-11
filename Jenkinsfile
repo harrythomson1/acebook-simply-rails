@@ -1,18 +1,14 @@
 pipeline {
         agent any
         stages {
-          stage ('Build') {
-                  rails s
-          }
-          stage ('Test') {
-                  . . .
-          }
-          stage ('QA') {
-                  . . .
-          }
-          stage ('Deploy') {
-                  . . .
-          }
-          
+          stage ('one') {
+                    steps {
+                      echo 'Hello world'
+                    }
+        }          
+        stage ('two') {
+                    steps {
+                      input('Do you want to proceed?')
+                    }
         }
 }

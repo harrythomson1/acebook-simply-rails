@@ -13,6 +13,20 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+      @post = Post.find(params[:id])
+
+      if @post.update(edit_params)
+        redirect_to posts_url
+      else
+        render :edit
+      end
+    end
+
   def index
     @posts = Post.order('Created_at DESC').all
   end
@@ -28,6 +42,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
+    params.require(:post).permit(:message)
+  end
+
+  def edit_params
     params.require(:post).permit(:message)
   end
 end

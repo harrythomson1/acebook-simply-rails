@@ -6,7 +6,7 @@
             <span class="navbar-item">
               <h1 class="title">Acebook</h1>
             </span>
-          <span class="navbar-burger" data-target="navbarMenuHeroB">
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
             <span></span>
             <span></span>
             <span></span>
@@ -37,3 +37,14 @@
     </nav>
   </div>
 </section>
+<script type="text/javascript">
+  (function() {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('#'+burger.dataset.target);
+
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('is-active');
+      nav.classList.toggle('is-active');
+    });
+  })();
+</script>

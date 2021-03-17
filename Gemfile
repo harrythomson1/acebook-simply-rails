@@ -13,6 +13,7 @@ gem 'rubocop'
 gem 'rails', '~> 6.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'font-awesome-rails'
 # Use Puma as the app server
 gem 'devise'
 gem 'puma', '~> 3.12.6'

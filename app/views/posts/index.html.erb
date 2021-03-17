@@ -14,14 +14,14 @@
       </div>
       <% if post.user == current_user %>
       <div class="card-footer">
-        <span class="icon ">
-          <i class="far fa-thumbs-up"></i>
+        <span class="icon">
+          <i class="far fa-thumbs-up ml-4"></i> 
         </span>
-        <p class="ml-4 card-footer-item"><%= post.likes.count %> Likes</p>
+        <p class="ml-2"><%= post.likes.count %></p>
         <% if Time.now - post.created_at < 10.minutes%>
         <%= link_to 'Edit', edit_post_path(post), class: "card-footer-item" %>
         <% end %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-footer-item"%>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-footer-item mr-6"%>
       </div>
       <% end %>
         <% if current_user != post.user%>
@@ -30,7 +30,7 @@
             <i class="far fa-thumbs-up"></i>
             <%= link_to ('<i class="far fa-thumbs-up"></i>').html_safe, post_likes_path(post), method: :post, class: "card-footer-item" %>
           </span>
-          <p class="ml-4"><%= post.likes.count %> Likes</p>
+          <p class="ml-2"><%= post.likes.count %></p>
         </div>
           <% end %>
     </div>

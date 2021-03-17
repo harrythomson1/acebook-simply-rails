@@ -28,14 +28,20 @@
       </div>
       <% end %>
         <% if current_user != post.user%>
-        <div class="card-footer">
-          <span class="icon">
-            <i class="far fa-thumbs-up"></i>
-            <%= link_to ('<i class="far fa-thumbs-up"></i>').html_safe, post_likes_path(post), method: :post, class: "card-footer-item" %>
-          </span>
+          <div class="card-footer">
+            <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= link_to post_like_path(post, pre_like), method: :delete do %>
+                <i class="far fa-thumbs-up ml-3"></i>
+              <%end%>
+            <% else %>
+              <%= link_to post_likes_path(post), method: :post do %>
+                <i class="far fa-thumbs-up ml-3"></i>
+              <% end %>
+            <% end %>
           <p class="ml-2"><%= post.likes.count %></p>
-        </div>
-          <% end %>
+          </div>
+        <% end %>
     </div>
     <br>
     <% end %>
@@ -43,3 +49,4 @@
   </div>
 </div>
 <br>
+

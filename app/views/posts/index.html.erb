@@ -19,7 +19,14 @@
         <% end %>
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-footer-item"%>
       </div>
-        <% end %>
+      <% end %>
+        <% if current_user != post.user%>
+        <div class="card-footer">
+          <span class="icon">
+            <%= link_to ('<i class="fas fa-thumbs-up"></i>').html_safe, post_likes_path(post), method: :post, class: "card-footer-item" %>
+          </span>
+        </div>
+          <% end %>
     </div>
     <br>
     <% end %>

@@ -10,6 +10,9 @@
       <div class="card-content">
         <div class="content">
           <p class="form"><%= post.message %></p>
+          <% unless post.image.url == '/images/original/missing.png'%>
+          <%= image_tag post.image.url(:medium)%>
+          <% end %>
         </div>
       </div>
       <% if post.user == current_user %>

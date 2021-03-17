@@ -1,6 +1,10 @@
-<%= form_for post do |form| %>
+<%= form_for post, html: { multipart: true } do |form| %>
   <%= form.label :message, class: "label" %>
   <%= form.text_area :message, class: "input" %>
+  <br>
+  <%= form.label :image, class: "label" %>
+  <%= form.file_field :image %>
+  <br>
   <br>
   <%= form.submit "Submit", class: "button is-success" %>
 
